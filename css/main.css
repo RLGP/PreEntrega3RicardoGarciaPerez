@@ -115,14 +115,14 @@ footer {
   font-size: x-large;
  }
  .custom-quantity {
-  width: 50px; /* Adjust the width */
-  padding: 5px; /* Add some padding */
-  border: none; /* Change the border color */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 16px; /* Change font size */
+  width: 50px; 
+  padding: 5px; 
+  border: none; 
+  border-radius: 5px;
+  font-size: 16px; 
 }
 .custom-quantity:focus {
-  outline: none; /* Remove default outline */
+  outline: none; 
 }
 
 /* pagina principal */
