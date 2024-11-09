@@ -15,7 +15,7 @@ function renderProducts() {
             </div>
             <img src="${product.image}" alt="${product.alt}" style="width: 200px; height: 200px; margin-bottom: 50px; margin-top: 20px;">
             <div>
-                <input type="number" class="cantidad" data-id="${product.id}" value="1" min="1" style="width: 60px; margin-right: 50px;">
+                <input type="number" class="cantidad custom-quantity" data-id="${product.id}" value="1" min="1" style="width: 40px; margin-right: 50px;">
                 <button class="btn btn-primary add-to-cart" data-id="${product.id}" data-precio="${product.precio}">Añadir al Carrito</button>
             </div>
         `;
