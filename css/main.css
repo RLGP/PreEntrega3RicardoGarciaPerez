@@ -9,11 +9,16 @@
 body {
   font-family: "Roboto", sans-serif;
   background-color: #EDEADE;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+  margin: 0; 
 }
 
 main {
   text-align: center;
   color: black;
+  flex: 1;
 }
 
 /* navbar */
@@ -57,56 +62,12 @@ header nav ul {
 .navbar-toggler {
   color: #ff9a00;
 }
-
-/* contactanos */
-main .formulario {
-  padding-left: 60px;
-  padding-right: 60px;
-  font-size: 20px;
-}
-main .formulary {
-  padding-top: 50px;
-  display: flex;
-  justify-content: space-around;
-  text-align: left;
+.cart{
+  height: 8vh;
+  align-items: center;
+  justify-content: center;
 }
 
-form {
-  width: 500px;
-}
-
-label, input, textarea, select {
-  display: block;
-  margin-left: 30px;
-}
-
-input, textarea, select {
-  margin-bottom: 30px;
-}
-
-textarea {
-  resize: none;
-}
-
-input[type=submit] {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #ff9a00;
-  border: none;
-  font-weight: bolder;
-  height: 40px;
-  width: 70px;
-}
-
-input[type=submit]:hover {
-  transition: 1s;
-  box-shadow: 5px 5px 0px black;
-}
-
-.logoide {
-  width: 50%;
-  height: 50%;
-}
 /* footer */
 footer {
   text-align: center;
@@ -114,6 +75,7 @@ footer {
   font-weight: bold;
   font-size: larger;
   margin-bottom: -21px;
+  color: black;
 }
 
 /* MEDIA QUERIES */
@@ -139,7 +101,19 @@ footer {
     margin: 30px;
   }
 }
-
+/* pagina principal */
+ .notification {
+  display: none; 
+  background-color: #ff9a00; 
+  color: black; 
+  text-align: center; 
+  padding: 10px; 
+  position: relative; 
+  width: 100%; 
+  z-index: 1000;
+  font-weight: bold;
+  font-size: x-large;
+ }
 /* pagina principal */
 @media screen and (min-width: 1024px) {
   main .bienvenida {
@@ -170,7 +144,29 @@ footer {
       height: 300px;
       width: 300px;
   }
-}
+  .add-to-cart {
+    margin-top: 20px;
+    background-color: #ff9a00;
+    border: none;
+    font-weight: bold;
+    color: black;
+  }
+  .add-to-cart:hover {
+    margin-top: 20px;
+    background-color: #ff9a00;
+    border: none;
+    font-weight: bold;
+    color: black;
+  }
+  .add-to-cart:active {
+    margin-top: 20px;
+    background: #ff9a00 !important ;
+    border: none;
+    font-weight: bold;
+    color: black;
+  }
+  
+} 
 @media screen and (max-width: 600px) {
   main .bienvenida {
     padding-left: 20px;
@@ -199,7 +195,29 @@ footer {
       height: 300px;
       width: 300px;
   }
+  .add-to-cart {
+    margin-top: 20px;
+    background-color: #ff9a00;
+    border: none;
+    font-weight: bold;
+    color: black;
+  }
+  .add-to-cart:hover {
+    margin-top: 20px;
+    background-color: #ff9a00;
+    border: none;
+    font-weight: bold;
+    color: black;
+  }
+  .add-to-cart:active {
+    margin-top: 20px;
+    background-color:#ff9a00 !important ;
+    border: none;
+    font-weight: bold;
+    color: black;
+  }
 }
+
 @media screen and (min-width: 600px) {
   main .bienvenida {
     padding-left: 20px;
@@ -227,6 +245,27 @@ footer {
     .list-group-item img{
       height: 300px;
       width: 300px;
+  }
+  .add-to-cart {
+    margin-top: 20px;
+    background-color: #ff9a00;
+    border: none;
+    font-weight: bold;
+    color: black;
+  }
+  .add-to-cart:hover {
+    margin-top: 20px;
+    background-color: #ff9a00;
+    border: none;
+    font-weight: bold;
+    color: black;
+  }
+  .add-to-cart:active {
+    margin-top: 20px;
+    background: #ff9a00 !important ;
+    border: none;
+    font-weight: bold;
+    color: black;
   }
 }
 
@@ -263,20 +302,6 @@ footer {
   }
 }
 
-/* contactanos */
-@media screen and (max-width: 1024px) {
-  .logoide {
-    display: none;
-  }
-  label {
-    display: flex;
-  }
-  label, input, textarea, select {
-    display: flex;
-    margin-left: 30px;
-  }
-}
-
 /* footer */
 @media screen and (max-width: 600px) {
   footer {
@@ -289,4 +314,57 @@ footer {
   }
 }
 
-/*# sourceMappingURL=main.css.map */
+/*Login*/
+#login-section {
+  margin-bottom: 20px;
+}
+
+#login-form {
+  margin-top: 10px;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color:#EDEADE;
+}
+
+#login-form input {
+  display: block;
+  margin: 10px 0;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/*CART*/
+.btn-primary {
+  margin-top: 20px;
+  background-color: #ff9a00;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: black;
+}
+.btn-primary:hover {
+  margin-top: 20px;
+  background-color: #ff9a00;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: black;
+}
+.btn-primary:active {
+  margin-top: 20px;
+  background: #ff9a00 !important ;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: black;
+}
+.total-price {
+  font-size: 24px;
+  font-weight: bold;
+}
