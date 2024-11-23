@@ -1,11 +1,32 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let products = [];
+
+// Fetch de los productos de products.json
+fetch('../products.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        products = data; 
+        renderProducts(products); 
+    })
+    .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+    });
 
 // Render de productos en la pagina principal
-function renderProducts() {
+function renderProducts(products) {
     const productList = document.getElementById('product-list');
+    productList.innerHTML = ''; 
+
     products.forEach(product => {
         const listItem = document.createElement('li');
         listItem.className = 'list-group-item justify-content-between align-items-center';
+        
+        // Muestra el boton añadir al carrito solo si está logueado el usuario
         listItem.innerHTML = `
             <div class="align-items-center carrito">
                 <div>
@@ -15,13 +36,19 @@ function renderProducts() {
             </div>
             <img src="${product.image}" alt="${product.alt}" style="width: 200px; height: 200px; margin-bottom: 50px; margin-top: 20px;">
             <div>
-                <input type="number" class="cantidad custom-quantity" data-id="${product.id}" value="1" min="1" style="width: 40px; margin-right: 50px;">
-                <button class="btn btn-primary add-to-cart" data-id="${product.id}" data-precio="${product.precio}">Añadir al Carrito</button>
+                ${isLoggedIn ? `
+                    <input type="number" class="cantidad custom-quantity" data-id="${product.id}" value="1" min="1" style="width: 40px; margin-right: 50px;">
+                    <button class="btn btn-primary add-to-cart" data-id="${product.id}" data-precio="${product.precio}">Añadir al Carrito</button>
+                ` : `
+   
+                `}
             </div>
         `;
+
         productList.appendChild(listItem);
     });
 }
+
 
 // funcionpara añadir productos al carrito
 function addToCart(productId, precio, cantidad) {
@@ -46,14 +73,12 @@ function addToCart(productId, precio, cantidad) {
     updateCartDisplay(); // Actualiza el cart display despues del producto anadido
 }
 
-function showNotification() {
-    const notificationBar = document.getElementById('notification-bar');
-    notificationBar.style.display = 'block'; // mostrar la barra de notificacion
-
-    // Oculta la notificacion 
-    setTimeout(() => {
-        notificationBar.style.display = 'none';
-    }, 2000);
+function showNotification(message) {
+    Swal.fire({
+        title: message,
+        timer: 2000,
+        showConfirmButton: false
+    });
 }
 
 // Event listener para añadir productos al carrito

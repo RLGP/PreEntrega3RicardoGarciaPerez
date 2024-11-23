@@ -102,18 +102,7 @@ footer {
   }
 }
 /* pagina principal */
- .notification {
-  display: none; 
-  background-color: #ff9a00; 
-  color: black; 
-  text-align: center; 
-  padding: 10px; 
-  position: relative; 
-  width: 100%; 
-  z-index: 1000;
-  font-weight: bold;
-  font-size: x-large;
- }
+
  .custom-quantity {
   width: 50px; 
   padding: 5px; 
